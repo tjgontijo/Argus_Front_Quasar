@@ -83,7 +83,8 @@ module.exports = function (ctx) {
         'QPullToRefresh',
         'QActionSheet',
         'QCollapsible',
-        'QItemSeparator'
+        'QItemSeparator',
+        'QPopover'
       ],
       directives: [
         'Ripple',

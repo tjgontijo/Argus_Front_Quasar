@@ -16,10 +16,43 @@
           <q-icon name="menu" />
         </q-btn>
 
-        <q-toolbar-title>
+        <q-toolbar-title class="row">
+          <div class="col-6 offset-5">
+            <img src="https://argus.iscp.edu.br/img/site/logo.png" width="120vw">
+          </div>
           <div slot="subtitle"></div>
         </q-toolbar-title>
-        <q-btn flat round dense icon="exit_to_app" title="Sair" v-on:click="sair()"/>
+        <q-btn
+          round
+          @click="toggleMenuUser" icon="more_vert">
+          <q-popover v-model="showing">
+            <q-list
+              highlight
+              link>
+              <!-- notice `v-close-overlay` which closes popover -->
+              <!--<q-item v-close-overlay @click.native="doSomething">-->
+              <q-item
+                v-for="item in items"
+                :to="item.to"
+                @click.native="item.click"
+                :key="item.title"
+                :disabled="item.disabled"
+                separator
+                v-close-overlay
+                >
+                <q-item-side
+                  left
+                  v-if="item.icon"
+                  :icon="item.icon"
+                  :color="item.color">
+                </q-item-side>
+                <q-item-main
+                  :label="item.title"
+                  :sublabel="item.subtitle"/>
+              </q-item>
+            </q-list>
+          </q-popover>
+        </q-btn>
       </q-toolbar>
     </q-layout-header>
 
@@ -139,14 +172,51 @@ export default {
   data () {
     return {
       leftDrawerOpen: false,
-      user: false
+      user: false,
+      items: [
+        {
+          icon: 'far fa-user',
+          disabled: false,
+          to: '#',
+          title: 'Perfil',
+          color: 'primary',
+          subtitle: '',
+          click: (e) => {
+            console.log(e)
+          }
+        },
+        {
+          icon: 'fas fa-cog',
+          disabled: false,
+          to: '#',
+          title: 'Configurações',
+          color: 'green',
+          subtitle: '',
+          click: (e) => {
+            console.log(e)
+          }
+        },
+        {
+          icon: 'fas fa-sign-out-alt',
+          to: '#',
+          title: 'Sair',
+          color: 'red',
+          subtitle: '',
+          click: (e) => {
+            sessionStorage.clear()
+            this.user = false
+            this.$router.push('/login')
+          }
+        }
+      ],
+      showing: false
     }
   },
   methods: {
     sair () {
-      sessionStorage.clear()
-      this.user = false
-      this.$router.push('/login')
+    },
+    toggleMenuUser () {
+      this.showing = !this.showing
     }
   },
   created () {
