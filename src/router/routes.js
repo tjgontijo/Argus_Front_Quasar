@@ -11,7 +11,8 @@ const routes = [
     path: '/',
     component: () => import('layouts/LoginLayout.vue'),
     children: [
-      { path: 'login', component: () => import('pages/Login.vue') }
+      { path: 'login', component: () => import('pages/Login.vue') },
+      { path: 'register', component: () => import('pages/Register.vue') }
     ]
   },
   {
@@ -20,6 +21,7 @@ const routes = [
     children: [
       { path: 'home', component: () => import('pages/admin/home/Index.vue') },
       { path: 'users', component: () => import('pages/admin/users/Index.vue') },
+      { path: 'users/profile-edit', component: () => import('pages/admin/users/ProfileEdit.vue') },
       { path: 'events', component: () => import('pages/admin/events/Index.vue') },
       { path: 'clients', component: () => import('pages/admin/clients/Index.vue') }
     ]

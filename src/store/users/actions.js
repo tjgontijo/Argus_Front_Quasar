@@ -11,6 +11,16 @@ const setUsers = ({ commit }) => {
       })
   })
 }
+
+const delUsers = ({ commit }) => {
+  return 'ok'
+}
+
+const updUsers = ({ commit }) => {
+  return 'ok'
+}
 export {
-  setUsers
+  setUsers,
+  delUsers,
+  updUsers
 }

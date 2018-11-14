@@ -1,7 +1,7 @@
 <template>
   <q-page class="container">
     <div class="row">
-      <div class="q-display-3">Divulga Maiz Brazil</div>
+      <div class="q-display-3"></div>
     </div>
     <div class="row">
       <q-btn label="Administração" to="/admin/home" />

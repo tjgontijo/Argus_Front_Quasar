@@ -1,7 +1,11 @@
 <template>
   <q-page class="container">
-    <div class="row">
-      <div class="q-display-3">Home Admin</div>
+    <div class="q-pa-xl">
+      <div class="row">
+        <div class="col">
+          <p class="q-display-2">Página Inicial</p>
+        </div>
+      </div>
     </div>
    </q-page>
 </template>

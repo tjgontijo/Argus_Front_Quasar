@@ -13,19 +13,19 @@ module.exports = function (ctx) {
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
       'material-icons', // optional, you are not bound to it
-       'ionicons',
-       'mdi',
-       'fontawesome'
+      'ionicons',
+      'mdi',
+      'fontawesome'
     ],
     supportIE: true,
     build: {
       env: ctx.dev
-      ? {
-        API: JSON.stringify('http://127.0.0.1:8000/api')
-      }
-      : {
-        API: JSON.stringify('http://127.0.0.1:8000/api')
-      },
+        ? {
+          API: JSON.stringify('http://127.0.0.1:8000/api')
+        }
+        : {
+          API: JSON.stringify('http://127.0.0.1:8000/api')
+        },
       scopeHoisting: true,
       vueRouterMode: 'history',
       // vueCompiler: true,
@@ -76,15 +76,24 @@ module.exports = function (ctx) {
         'QTh',
         'QTr',
         'QTd',
-        'QTableColumns'        
+        'QTableColumns',
+        'QBtnDropdown',
+        'QModal',
+        'QDatetime',
+        'QPullToRefresh',
+        'QActionSheet',
+        'QCollapsible',
+        'QItemSeparator'
       ],
       directives: [
-        'Ripple'
+        'Ripple',
+        'CloseOverlay'
       ],
       // Quasar plugins
       plugins: [
         'Notify',
-        'Loading'
+        'Loading',
+        'ActionSheet'
       ]
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
