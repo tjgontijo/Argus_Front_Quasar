@@ -3,6 +3,9 @@ import Vuex from 'vuex'
 
 import users from './users'
 import events from './events'
+import breeds from './breeds'
+import genders from './genders'
+import orientations from './orientations'
 
 Vue.use(Vuex)
 
@@ -15,7 +18,10 @@ export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
       users,
-      events
+      events,
+      breeds,
+      genders,
+      orientations
     }
   })
 

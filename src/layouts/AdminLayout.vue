@@ -81,13 +81,17 @@
         </q-item>
         <q-item-separator />
         <q-collapsible group="somegroup" icon="explore" label="Cadastro Base">
-          <q-item to="#">
+          <q-item to="genders">
             <q-item-side icon="fas fa-user-friends" />
             <q-item-main label="Genêros" sublabel="" />
           </q-item>
-          <q-item to="#">
+          <q-item to="breeds">
             <q-item-side icon="fas fa-user-friends" />
             <q-item-main label="Raça/Cor/Etinia" sublabel="" />
+          </q-item>
+          <q-item to="orientations">
+            <q-item-side icon="fas fa-user-friends" />
+            <q-item-main label="Orientação Sexual" sublabel="" />
           </q-item>
           <q-item to="#">
             <q-item-side icon="fas fa-user-friends" />

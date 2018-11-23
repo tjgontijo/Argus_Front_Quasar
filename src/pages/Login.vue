@@ -4,7 +4,9 @@
     <div style="width: 500px; max-width: 90vw;">
       <q-card>
         <q-card-title>
-          <p align="center">IMAGEM</p>
+          <p align="center">
+            IMAGEM
+          </p>
         </q-card-title>
         <q-card-main>
           <q-input v-model="user.email" type="email" float-label="E-mail" autofocus :after="[{icon: 'mail', handler () {}}]"/>
@@ -12,7 +14,7 @@
         </q-card-main>
           <div class="row justify-between q-pa-md">
             <q-btn flat color="primary" to="/register" icon="" label="Registrar" />
-            <q-btn flat color="primary" icon-right=""  v-on:click="login()" label="Entrar" />
+            <q-btn flat color="primary" v-on:click="login()" label="Entrar" />
           </div>
       </q-card>
     </div>
@@ -34,10 +36,11 @@ export default {
   },
   methods: {
     login () {
-      axios.post(`${process.env.API}/user/login`, {
-        email: this.user.email,
-        password: this.user.password
-      })
+      axios
+        .post(`${process.env.API}/user/login`, {
+          email: this.user.email,
+          password: this.user.password
+        })
         .then(response => {
           console.log(response)
           if (response.data.token) {
@@ -63,5 +66,4 @@ export default {
 </script>
 
 <style>
-
 </style>

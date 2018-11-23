@@ -84,7 +84,8 @@ module.exports = function (ctx) {
         'QActionSheet',
         'QCollapsible',
         'QItemSeparator',
-        'QPopover'
+        'QPopover',
+        'QModalLayout'
       ],
       directives: [
         'Ripple',
@@ -94,7 +95,8 @@ module.exports = function (ctx) {
       plugins: [
         'Notify',
         'Loading',
-        'ActionSheet'
+        'ActionSheet',
+        'Dialog'
       ]
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
