@@ -12,6 +12,25 @@
             row-key="id"
             color="secondary"
           >
+          <q-td
+              slot="body-cell-action"
+              slot-scope="props"
+              :props="props">
+              <q-btn
+                color="amber"
+                flat
+                round
+                edit
+                @click="editBreed(props.row)"
+                icon="fas fa-edit"></q-btn>
+                  <q-btn
+                color="negative"
+                flat
+                round
+                delete
+                icon="delete"
+                @click="deleteBreed(props.row)"/>
+            </q-td>
             <template slot="top-left" slot-scope="props">
               <q-search
                 hide-underline
@@ -21,30 +40,24 @@
               />
             </template>
             <template slot="top-right" slot-scope="props">
-              <q-table-columns
-                color="secondary"
-                class="q-mr-sm"
-                v-model="visibleColumns"
-                :columns="columns"
-              />
-              <q-select
-                color="secondary"
-                v-model="separator"
-                :options="[
-                  { label: 'Horizontal', value: 'horizontal' },
-                  { label: 'Vertical', value: 'vertical' },
-                  { label: 'Cell', value: 'cell' },
-                  { label: 'None', value: 'none' }
-                ]"
-                hide-underline
-              />
               <q-btn
-                flat round dense
-                :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
-                @click="props.toggleFullscreen"
-              />
+                @click="OpenBreedModalAdd()"
+                icon="add_circle"
+                size="16px"
+                color="primary"
+                label="Adicionar" flat rounded/>
             </template>
           </q-table>
+           <q-modal v-model="minimizedModal" minimized ref="modalRef">
+            <div style="padding: 50px; width: 30vw">
+                <div class="q-display-1 q-mb-md text-center">Adicionar</div>
+                <q-input v-model="breed.name" type="text" float-label="Raças, cores e etinias" :after="[{icon: 'font_download', handler () {}}]" autofocus/>
+                <div class="row justify-between" style="margin-top: 25px">
+                <q-btn color="warning" @click="minimizedModal = false" label="Voltar" />
+                <q-btn color="primary" label="Adicionar" v-on:click="addBreed(breed)" />
+              </div>
+              </div>
+          </q-modal>
       </div>
     </div>
    </q-page>
@@ -61,12 +74,15 @@ export default {
       breed: {
         name: ''
       },
+      modalAdd: false,
+      minimizedModal: false,
       columns: [
         { name: 'id', required: true, label: 'ID', align: 'left', field: 'id', sortable: true },
-        { name: 'name', label: 'Nome', field: 'name', align: 'left', sortable: true }
+        { name: 'name', label: 'Nome', field: 'name', align: 'left', sortable: true },
+        { name: 'action', label: 'Ações', align: 'right', field: 'action' }
       ],
       filter: '',
-      visibleColumns: ['id', 'name'],
+      visibleColumns: ['id', 'name', 'action'],
       separator: 'horizontal',
       selection: 'multiple',
       pagination: {
@@ -84,7 +100,14 @@ export default {
     ...mapState('breeds', ['breeds'])
   },
   methods: {
-    ...mapActions('breeds', ['setBreeds'])
+    ...mapActions('breeds', ['setBreeds']),
+    OpenBreedModalAdd () {
+      this.minimizedModal = true
+      console.log('Add click')
+    },
+    addBreed (breed) {
+      console.log(breed)
+    }
   }
 }
 </script>

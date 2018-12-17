@@ -47,34 +47,12 @@
               />
             </template>
             <template slot="top-right" slot-scope="props">
-              <q-table-columns
-                color="secondary"
-                class="q-mr-sm"
-                v-model="visibleColumns"
-                :columns="columns"
-              />
-              <q-select
-                color="secondary"
-                v-model="separator"
-                :options="[
-                  { label: 'Horizontal', value: 'horizontal' },
-                  { label: 'Vertical', value: 'vertical' },
-                  { label: 'Cell', value: 'cell' },
-                  { label: 'None', value: 'none' }
-                ]"
-                hide-underline
-              />
-              <q-btn
-                flat round dense
-                :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
-                @click="props.toggleFullscreen"
-              />
               <q-btn
                 @click="OpenGenderModalAdd()"
                 icon="add_circle"
                 size="16px"
                 color="primary"
-                label="Adicionar" />
+                label="Adicionar" flat rounded/>
             </template>
           </q-table>
           <q-modal v-model="minimizedModalAdd" minimized ref="minimizedModalAdd">
@@ -113,10 +91,10 @@ export default {
     return {
       minimizedModal: false,
       minimizedModalAdd: false,
-      gender: {
-        id: '',
-        name: ''
-      },
+      gender: [
+        {id: ''},
+        {name: ''}
+      ],
       columns: [
         { name: 'id', required: true, label: 'ID', align: 'left', field: 'id', sortable: true },
         { name: 'name', label: 'Nome', field: 'name', align: 'left', sortable: true },
@@ -181,10 +159,10 @@ export default {
       }).then(() => {
         this.$store.dispatch('genders/delGender', id)
         this.$q.notify(`Gênero ${name} excluido com sucesso!`)
-        location.reload()
-      }).catch(() => {
-        this.$q.notify(`Favor tentar novamente mais tarde.`)
       })
+        .catch(e => {
+          console.log(e)
+        })
     },
     editGender (row) {
       this.minimizedModal = true
@@ -192,18 +170,22 @@ export default {
       this.gender.name = row.name
     },
     updateGender () {
-      const id = this.gender.id
-      const name = this.gender.name
-      this.$store.dispatch('genders/updGenders', {id, name})
+      const gender = this.gender
+      this.$store.dispatch('genders/updGender', gender)
         .then(response => {
           if (response.status === true) {
-            this.$q.notify({message: response.message, type: 'positive', position: 'top'})
+            this.$q.notify({
+              color: 'secondary',
+              icon: 'add_circle',
+              message: `Sexo atualizado com sucesso!`
+            })
+          } else {
+            console.log('entrou no else')
           }
         })
         .catch(e => {
           console.log(e)
         })
-      this.minimizedModal = false
     },
     showGender (row) {
       this.$q.dialog({

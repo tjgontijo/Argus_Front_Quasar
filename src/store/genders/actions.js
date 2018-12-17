@@ -33,7 +33,6 @@ export const delGender = ({ commit }, id) => {
 
 export const addGender = ({ commit, dispatch }, gender) => {
   return new Promise((resolve, reject) => {
-    commit('GENDER_REQUEST')
     const options = {
       method: 'POST',
       data: gender,
@@ -41,7 +40,7 @@ export const addGender = ({ commit, dispatch }, gender) => {
     }
     Vue.prototype.$axios.post(options)
       .then((res) => {
-        commit('ADD_GENDER', { gender: res.data })
+        commit('ADD_GENDER', gender)
       })
       .catch((err) => {
         console.error(err)
@@ -51,7 +50,6 @@ export const addGender = ({ commit, dispatch }, gender) => {
 
 export const updGender = ({ commit, dispatch }, gender) => {
   return new Promise((resolve, reject) => {
-    commit('GENDER_REQUEST')
     const options = {
       method: 'PUT',
       data: gender,
@@ -59,11 +57,7 @@ export const updGender = ({ commit, dispatch }, gender) => {
     }
     Vue.prototype.$axios(options)
       .then((res) => {
-        if (res.data.status === true) {
-          commit('EDIT_GENDER', gender)
-        }
-        let result = {status: 'success', message: 'Sexo atualizado com sucesso', type: 'positive'}
-        resolve(result)
+        commit('EDIT_GENDER', gender)
       })
       .catch((err) => {
         console.error(err)

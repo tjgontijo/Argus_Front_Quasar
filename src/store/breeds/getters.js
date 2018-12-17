@@ -1,4 +1,4 @@
-/*
-export function someGetter (state) {
+
+export function getAllBreeds (state) {
+  return state.breeds
 }
-*/

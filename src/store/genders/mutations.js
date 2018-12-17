@@ -13,7 +13,7 @@ export const EDIT_GENDER = (state, dados) => {
   state.genders = dados
 }
 export const ADD_GENDER = (state, { gender }) => {
-  state.projects.push(gender)
+  state.genders.push(gender)
 }
 export const DELETE_GENDER = (state, { gender }) => {
   state.genders.splice(gender)
