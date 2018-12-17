@@ -11,6 +11,22 @@ const setUsers = ({ commit }) => {
       })
   })
 }
+const setUserInfo = ({ commit }, id) => {
+  return new Promise((resolve, reject) => {
+    const options = {
+      method: 'GET',
+      data: id,
+      url: `${process.env.API}/users/${id}`
+    }
+    Vue.prototype.$axios(options)
+      .then((res) => {
+        commit('SET_USER_INFO', res.data.user)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+  })
+}
 
 const delUsers = ({ commit }) => {
   return 'ok'
@@ -22,5 +38,6 @@ const updUsers = ({ commit }) => {
 export {
   setUsers,
   delUsers,
-  updUsers
+  updUsers,
+  setUserInfo
 }
