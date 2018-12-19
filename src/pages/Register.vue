@@ -43,6 +43,7 @@ export default {
         password_confirmation: this.user.password_confirmation
       })
         .then(response => {
+          console.log(response)
           if (response.data.token) {
             sessionStorage.setItem('user', JSON.stringify(response.data))
             this.$router.push('admin/home')

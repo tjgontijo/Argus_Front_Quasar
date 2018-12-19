@@ -4,6 +4,7 @@ const setUsers = ({ commit }) => {
   return new Promise((resolve, reject) => {
     Vue.prototype.$axios.get(`${process.env.API}/users`)
       .then((res) => {
+        console.log(res)
         commit('SET_USERS', res.data.users)
       })
       .catch((err) => {

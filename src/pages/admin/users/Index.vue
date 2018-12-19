@@ -9,10 +9,37 @@
             :columns="columns"
             :filter="filter"
             :visible-columns="visibleColumns"
+            :pagination.sync="paginationControl"
             :separator="separator"
             row-key="id"
             color="secondary"
           >
+           <q-td
+              slot="body-cell-action"
+              slot-scope="props"
+              :props="props">
+             <q-btn
+                color="positive"
+                flat
+                round
+                show
+                @click="showUser(props.row)"
+                icon="far fa-eye"></q-btn>
+              <q-btn
+                color="amber"
+                flat
+                round
+                edit
+                @click="editUser(props.row)"
+                icon="fas fa-edit"></q-btn>
+                 <q-btn
+                color="negative"
+                flat
+                round
+                delete
+                icon="delete"
+                @click="deleteUser(props.row)"/>
+            </q-td>
           <template slot="top-right" slot-scope="props">
             <q-btn
                 @click="OpenAddUserModal()"
@@ -75,15 +102,18 @@ export default {
           sortable: true
         },
         { name: 'name', label: 'Usuário', field: 'name', align: 'left', sortable: true },
-        { name: 'email', label: 'E-mail', field: 'email', align: 'left' }
+        { name: 'email', label: 'E-mail', field: 'email', align: 'left' },
+        { name: 'cpf', label: 'CPF', field: 'cpf', align: 'left' },
+        { name: 'rg', label: 'RG', field: 'rg', align: 'left' },
+        { name: 'action', label: 'Ações', align: 'right', field: 'action' }
       ],
       filter: '',
-      visibleColumns: ['id', 'name', 'email'],
+      visibleColumns: ['id', 'name', 'email', 'action', 'cpf', 'rg'],
       separator: 'horizontal',
       pagination: {
         page: 2
       },
-      paginationControl: { rowsPerPage: 3, page: 1 },
+      paginationControl: { rowsPerPage: 10, page: 1 },
       loading: false,
       dark: true
     }
@@ -129,6 +159,15 @@ export default {
           console.log(e)
           alert('Servidor Fora')
         })
+    },
+    showUser (row) {
+      console.log(row.id)
+    },
+    editUser (row) {
+      console.log(row.name)
+    },
+    deleteUser (row) {
+      console.log(row)
     }
   }
 }

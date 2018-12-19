@@ -1,11 +1,7 @@
-const SET_USERS = (state, dados) => {
-  state.users = dados
-}
-const SET_USER_INFO = (state, dados) => {
-  state.users = dados
+const SET_USERS = (state, users) => {
+  state.users = users
 }
 
 export {
-  SET_USERS,
-  SET_USER_INFO
+  SET_USERS
 }

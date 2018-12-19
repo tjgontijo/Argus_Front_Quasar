@@ -1,4 +1,3 @@
 export default {
-  users: [],
-  user_info: []
+  users: []
 }
