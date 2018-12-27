@@ -132,6 +132,10 @@
             <q-item-side icon="fas fa-user-friends" />
             <q-item-main label="Cadastro de Usuários" sublabel="" />
           </q-item>
+          <q-item to="/admin/users/profile-edit">
+            <q-item-side icon="fas fa-user-friends" />
+            <q-item-main label="Editar Perfil" sublabel="" />
+          </q-item>
         </q-collapsible>
         <q-item-separator />
         <q-collapsible group="somegroup" icon="perm_identity" label="Divulgadores">

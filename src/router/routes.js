@@ -21,6 +21,7 @@ const routes = [
     children: [
       { path: 'home', component: () => import('pages/admin/home/Index.vue') },
       { path: 'users', component: () => import('pages/admin/users/Index.vue') },
+      { path: 'users', component: () => import('pages/admin/users/ProfileEdit.vue') },
       { path: 'users/profile-edit', component: () => import('pages/admin/users/ProfileEdit.vue') },
       { path: 'events', component: () => import('pages/admin/events/Index.vue') },
       { path: 'orientations', component: () => import('pages/admin/orientations/Index.vue') },

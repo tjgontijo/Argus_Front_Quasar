@@ -6,9 +6,11 @@ export const setGenders = ({ commit, dispatch }) => {
     Vue.prototype.$axios.get(`${process.env.API}/genders`)
       .then((res) => {
         commit('SET_GENDERS', res.data.genders)
+        resolve(res.data.genders)
       })
       .catch((err) => {
         console.error(err)
+        reject(err)
       })
   })
 }
