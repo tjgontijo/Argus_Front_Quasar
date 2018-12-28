@@ -1,7 +1,6 @@
-const SET_USERS = (state, users) => {
-  state.users = users
+export const SET_USER_LOGGED = (state, n) => {
+  state.userLogged = n
 }
-
-export {
-  SET_USERS
+export const SET_USERS = (state, n) => {
+  state.users = n
 }

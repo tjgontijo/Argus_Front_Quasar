@@ -46,6 +46,7 @@ export default {
           console.log(response)
           if (response.data.token) {
             sessionStorage.setItem('user', JSON.stringify(response.data))
+            this.$store.commit('users/SET_USERS', response.data)
             this.$router.push('admin/home')
           } else if (response.data.status === false) {
             alert('Erro no Cadastro, tente novamente mais tarde.')

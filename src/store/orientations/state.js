@@ -1,3 +1,4 @@
 export default {
-  orientation: []
+  orientations: [],
+  status: ''
 }

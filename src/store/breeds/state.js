@@ -1,3 +1,4 @@
 export default {
-  breeds: []
+  breeds: [],
+  status: ''
 }

@@ -11,18 +11,19 @@ export default {
   name: 'LoginLayout',
   data () {
     return {
+      user: ''
     }
   },
   created () {
-    let usuario = sessionStorage.getItem('user')
+    let usuario = this.$store.getters['users/getUserLogged']
     if (usuario) {
-      this.user = JSON.parse(usuario)
+      this.user = this.$store.getters['users/getUserLogged']
+      this.$router.push('admin/home')
     } else {
       this.$router.push('/login')
     }
   }
 }
 </script>
-
 <style>
 </style>

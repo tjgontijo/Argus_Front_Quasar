@@ -4,6 +4,7 @@
       <div class="row">
         <div class="col">
           <!-- <iframe width="100%" height="800" src="https://app.powerbi.com/view?r=eyJrIjoiZTZjMWRkNjEtOTE4MS00MTY5LTkwYTQtY2Y5NWNjZjc5YTdhIiwidCI6ImFlYmNlOTgzLWMyOGQtNDkyNS1hN2JhLTk0NGQ4ZWFkZjkzYyJ9" frameborder="0" allowFullScreen="true"></iframe> -->
+          {{user}}
         </div>
       </div>
     </div>
@@ -18,7 +19,11 @@ export default {
   name: 'PageIndex',
   data () {
     return {
+      user: ''
     }
+  },
+  created () {
+    this.user = this.$store.getters['users/getUser']
   }
 }
 </script>

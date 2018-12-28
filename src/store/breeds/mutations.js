@@ -1,7 +1,10 @@
-const SET_BREEDS = (state, dados) => {
-  state.breeds = dados
+export const BREED_REQUEST = (state) => {
+  state.status = 'loading'
 }
-
-export {
-  SET_BREEDS
+export const BREED_ERROR = (state) => {
+  state.status = 'error'
+}
+export const SET_BREEDS = (state, dados) => {
+  state.status = 'success'
+  state.breeds = dados
 }

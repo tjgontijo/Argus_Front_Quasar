@@ -44,8 +44,9 @@ export default {
         .then(response => {
           console.log(response)
           if (response.data.token) {
-            sessionStorage.setItem('user', JSON.stringify(response.data))
+            sessionStorage.setItem('userLogged', JSON.stringify(response.data))
             this.$router.push('admin/home')
+            this.$store.commit('users/SET_USER_LOGGED', response.data)
           } else if (response.data.status === false) {
             alert('login não existe')
           } else {

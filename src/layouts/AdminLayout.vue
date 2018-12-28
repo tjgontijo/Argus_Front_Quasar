@@ -180,7 +180,7 @@ export default {
   data () {
     return {
       leftDrawerOpen: false,
-      user: false,
+      user: '',
       items: [
         {
           icon: 'far fa-user',
@@ -211,9 +211,9 @@ export default {
           color: 'red',
           subtitle: '',
           click: (e) => {
-            sessionStorage.clear()
-            this.user = false
+            this.$store.commit('users/SET_USER_LOGGED', null)
             this.$router.push('/login')
+            sessionStorage.clear()
           }
         }
       ],
@@ -228,9 +228,9 @@ export default {
     }
   },
   created () {
-    let usuario = sessionStorage.getItem('user')
+    let usuario = this.$store.getters['users/getUserLogged']
     if (usuario) {
-      this.user = JSON.parse(usuario)
+      this.user = this.$store.getters['users/getUserLogged']
     } else {
       this.$router.push('/login')
     }

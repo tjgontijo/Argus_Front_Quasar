@@ -31,13 +31,13 @@
             </div>
             <div class="row q-py-md justify-between">
               <div class="col-md-3 col-sm-12 col-xs-12">
-                <q-select v-model="user.gender_id" separator stack-label="Gênero" :options="genders" />
+                <q-select v-model="user.gender_id" clearable separator stack-label="Gênero" :options="genders" />
               </div>
               <div class="col-md-3 col-sm-12 col-xs-12">
-                <q-select v-model="user.breed_id" separator stack-label="Raça / Cor / Etinia" :options="breeds" />
+                <q-select v-model="user.breed_id" clearable separator stack-label="Raça / Cor / Etinia" :options="breeds" />
               </div>
               <div class="col-md-3 col-sm-12 col-xs-12">
-                <q-select v-model="user.orientation_id" separator stack-label="Orientação" :options="orientations" />
+                <q-select v-model="user.orientation_id" clearable separator stack-label="Orientação" :options="orientations" />
               </div>
             </div>
             <div class="row q-py-lg justify-between">
@@ -46,7 +46,6 @@
             </div>
             </q-card-main>
           </q-card>
-          {{genders}}
           </div>
         </div>
         </div>
@@ -70,18 +69,34 @@ export default {
         breed_id: '',
         orientation_id: ''
       },
-      genders: [],
-      breeds: [],
-      orientations: []
+      genders: [
+      ],
+      breeds: [
+      ],
+      orientations: [
+      ]
     }
   },
   mounted () {
-    this.setGender()
+    this.getGenders()
+    this.getBreeds()
+    this.getOrientations()
   },
-  computed: {},
   methods: {
-    setGender () {
-      this.genders = this.$store.getters['genders/getAllGenders']
+    getGenders () {
+      this.$store.dispatch('genders/setGenders').then(() => {
+        this.genders = this.$store.getters['genders/getAllGenders']
+      })
+    },
+    getBreeds () {
+      this.$store.dispatch('breeds/setBreeds').then(() => {
+        this.breeds = this.$store.getters['breeds/getAllBreeds']
+      })
+    },
+    getOrientations () {
+      this.$store.dispatch('orientations/setOrientations').then(() => {
+        this.orientations = this.$store.getters['orientations/getAllOrientations']
+      })
     }
   }
 }
