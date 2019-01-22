@@ -69,7 +69,7 @@
           <div class="row">
             <div class="col-11 offset-1">
               <a href="/">
-                <img src="https://ubisafe.org/images/transparent-png-logo-6.png" alt="" class="row" width="90%">
+                <img src="assets/logo.png" class="row" width="90%">
               </a>
             </div>
           </div>
@@ -80,29 +80,29 @@
           <q-item-main label="Painel Inicial" sublabel="" />
         </q-item>
         <q-item-separator />
-        <q-collapsible group="somegroup" icon="explore" label="Cadastro Base">
+        <q-collapsible group="somegroup" icon="remove" label="Cadastro Base">
           <q-item to="genders">
-            <q-item-side icon="fas fa-user-friends" />
-            <q-item-main label="Genêros" sublabel="" />
+            <q-item-side icon="face" />
+            <q-item-main label="Sexos" sublabel="" />
           </q-item>
           <q-item to="breeds">
-            <q-item-side icon="fas fa-user-friends" />
+            <q-item-side icon="adjust" />
             <q-item-main label="Raça/Cor/Etinia" sublabel="" />
           </q-item>
-          <q-item to="orientations">
+          <!-- <q-item to="orientations">
             <q-item-side icon="fas fa-user-friends" />
             <q-item-main label="Orientação Sexual" sublabel="" />
-          </q-item>
+          </q-item> -->
           <q-item to="#">
-            <q-item-side icon="fas fa-user-friends" />
+            <q-item-side icon="phone" />
             <q-item-main label="Tipos de Telefones" sublabel="" />
           </q-item>
           <q-item to="#">
-            <q-item-side icon="fas fa-user-friends" />
+            <q-item-side icon="alternate_email" />
             <q-item-main label="Tipos de E-mail" sublabel="" />
           </q-item>
-          <q-item to="#">
-            <q-item-side icon="fas fa-user-friends" />
+          <!-- <q-item to="#">
+            <q-item-side icon="far fa-eye" />
             <q-item-main label="Cores de Olhos" sublabel="" />
           </q-item>
           <q-item to="#">
@@ -120,31 +120,31 @@
           <q-item to="#">
             <q-item-side icon="fas fa-user-friends" />
             <q-item-main label="Interesses" sublabel="" />
-          </q-item>
-          <q-item to="#">
+          </q-item> -->
+          <!-- <q-item to="#">
             <q-item-side icon="fas fa-user-friends" />
             <q-item-main label="Nível de Divulgador" sublabel="" />
-          </q-item>
+          </q-item> -->
         </q-collapsible>
         <q-item-separator />
-        <q-collapsible group="somegroup" icon="perm_identity" label="Usuários">
+        <q-collapsible group="somegroup" icon="remove" label="Usuários">
           <q-item to="/admin/users">
             <q-item-side icon="fas fa-user-friends" />
             <q-item-main label="Cadastro de Usuários" sublabel="" />
           </q-item>
           <q-item to="/admin/users/profile-edit">
-            <q-item-side icon="fas fa-user-friends" />
+            <q-item-side icon="perm_identity" />
             <q-item-main label="Editar Perfil" sublabel="" />
           </q-item>
         </q-collapsible>
         <q-item-separator />
-        <q-collapsible group="somegroup" icon="perm_identity" label="Divulgadores">
+        <!-- <q-collapsible group="somegroup" icon="perm_identity" label="Divulgadores">
           <q-item to="#">
             <q-item-side icon="fas fa-user-friends" />
             <q-item-main label="Cadastro de Divulgadores" sublabel="" />
           </q-item>
-        </q-collapsible>
-        <q-item-separator />
+        </q-collapsible> -->
+        <!-- <q-item-separator />
         <q-collapsible group="somegroup" icon="shopping_cart" label="Eventos">
           <q-item to="#">
             <q-item-side icon="far fa-calendar-alt" />
@@ -159,13 +159,13 @@
             <q-item-main label="Cadastro de Eventos" sublabel="" />
           </q-item>
         </q-collapsible>
-        <q-item-separator />
-        <q-collapsible group="somegroup" icon="shopping_cart" label="Clientes">
+        <q-item-separator /> -->
+        <!-- <q-collapsible group="somegroup" icon="shopping_cart" label="Clientes">
            <q-item to="/admin/clients">
             <q-item-side icon="far fa-address-card" />
             <q-item-main label="Clientes" sublabel="" />
           </q-item>
-        </q-collapsible>
+        </q-collapsible> -->
       </q-list>
     </q-layout-drawer>
     <q-page-container>

@@ -16,13 +16,6 @@
               slot="body-cell-action"
               slot-scope="props"
               :props="props">
-             <q-btn
-                color="positive"
-                flat
-                round
-                show
-                @click="showGender(props.row)"
-                icon="far fa-eye"></q-btn>
               <q-btn
                 color="amber"
                 flat
