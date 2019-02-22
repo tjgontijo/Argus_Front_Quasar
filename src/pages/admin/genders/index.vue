@@ -106,8 +106,10 @@ export default {
         cancel: 'Não'
       }).then(() => {
         this.$store.dispatch('genders/delGender', id)
-        // window.location.reload()
-        // this.$q.notify(`Gênero ${name} excluido com sucesso!`)
+        setTimeout(() => {
+        // we're done, we reset loading state
+          window.location.reload()
+        }, 1000)
       })
         .catch(e => {
           console.log(e)

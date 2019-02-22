@@ -9,7 +9,8 @@
             <q-input
               v-model="gender.name"
               float-label="Sexo"
-              autofocusasd
+              autofocus
+              @keyup.enter="submit"
             />
           </div>
         </div>
@@ -20,7 +21,7 @@
               label="Salvar"
               block
               class="full-width"
-              @click="submit()"
+              @click="submit"
             />
           </div>
         </div>

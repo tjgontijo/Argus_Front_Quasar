@@ -21,11 +21,10 @@ const routes = [
     children: [
       { path: 'home', component: () => import('pages/admin/home/Index.vue') },
       { path: 'users', component: () => import('pages/admin/users/Index.vue') },
-      { path: 'users', component: () => import('pages/admin/users/ProfileEdit.vue') },
       { path: 'users/profile-edit', component: () => import('pages/admin/users/ProfileEdit.vue') },
       { path: 'events', component: () => import('pages/admin/events/Index.vue') },
-      { path: 'breeds', component: () => import('pages/admin/breeds/Index.vue') },
-      { path: 'genders', component: () => import('pages/admin/genders/Index.vue') },
+      { path: 'breeds', component: () => import('pages/admin/breeds/index.vue') },
+      { path: 'genders', component: () => import('pages/admin/genders/index.vue') },
       { path: 'gender', component: () => import('pages/admin/genders/create.vue') },
       { path: 'gender/:id', component: () => import('pages/admin/genders/edit.vue') },
       { path: 'clients', component: () => import('pages/admin/clients/Index.vue') }
