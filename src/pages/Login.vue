@@ -5,7 +5,7 @@
       <q-card>
         <q-card-title>
           <p align="center">
-            IMAGEM
+            <img src="assets/logo.png" width="200vw">
           </p>
         </q-card-title>
         <q-card-main>
@@ -36,11 +36,10 @@ export default {
   },
   methods: {
     login () {
-      axios
-        .post(`${process.env.API}/user/login`, {
-          email: this.user.email,
-          password: this.user.password
-        })
+      axios.post(`${process.env.API}/user/login`, {
+        email: this.user.email,
+        password: this.user.password
+      })
         .then(response => {
           console.log(response)
           if (response.data.token) {

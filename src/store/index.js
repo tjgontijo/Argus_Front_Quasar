@@ -5,7 +5,6 @@ import users from './users'
 import events from './events'
 import breeds from './breeds'
 import genders from './genders'
-import orientations from './orientations'
 
 Vue.use(Vuex)
 
@@ -20,8 +19,7 @@ export default function (/* { ssrContext } */) {
       users,
       events,
       breeds,
-      genders,
-      orientations
+      genders
     }
   })
 

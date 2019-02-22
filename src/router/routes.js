@@ -24,9 +24,10 @@ const routes = [
       { path: 'users', component: () => import('pages/admin/users/ProfileEdit.vue') },
       { path: 'users/profile-edit', component: () => import('pages/admin/users/ProfileEdit.vue') },
       { path: 'events', component: () => import('pages/admin/events/Index.vue') },
-      { path: 'orientations', component: () => import('pages/admin/orientations/Index.vue') },
       { path: 'breeds', component: () => import('pages/admin/breeds/Index.vue') },
       { path: 'genders', component: () => import('pages/admin/genders/Index.vue') },
+      { path: 'gender', component: () => import('pages/admin/genders/create.vue') },
+      { path: 'gender/:id', component: () => import('pages/admin/genders/edit.vue') },
       { path: 'clients', component: () => import('pages/admin/clients/Index.vue') }
     ]
   }

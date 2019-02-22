@@ -1,4 +1,5 @@
 export default {
   status: '',
-  genders: []
+  genders: [],
+  gender: {}
 }

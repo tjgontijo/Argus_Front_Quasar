@@ -12,10 +12,10 @@
             <q-card-main>
                <div class="row q-py-md justify-between">
               <div class="col-md-5 col-sm-12 col-xs-12">
-                <q-input v-model="user.username" stack-label="Nome" />
+                <q-input v-model="user.username" stack-label="Nome" autofocus />
               </div>
               <div class="col-md-5 col-sm-12 col-xs-12">
-                <q-input v-model="user.email" stack-label="E-mail" />
+                <q-input type="email" v-model="user.email" stack-label="E-mail" />
               </div>
             </div>
             <div class="row q-py-md justify-between">

@@ -29,7 +29,7 @@
                 round
                 delete
                 icon="delete"
-                @click="deleteGender(props.row)"/>
+                @click="delGender(props.row)"/>
             </q-td>
             <template slot="top-left" slot-scope="props">
               <q-search
@@ -41,35 +41,15 @@
             </template>
             <template slot="top-right" slot-scope="props">
               <q-btn
-                @click="OpenGenderModalAdd()"
+                @click="createGender()"
                 icon="add_circle"
                 size="16px"
                 color="primary"
                 label="Adicionar" flat rounded/>
             </template>
           </q-table>
-          <q-modal v-model="minimizedModalAdd" minimized ref="minimizedModalAdd">
-            <div style="padding: 50px; width: 50vw">
-                <div class="q-display-1 q-mb-md text-center">Cadastrar Sexo</div>
-                <q-input v-model="gender.name" type="text" float-label="Sexo:" :after="[{icon: 'font_download', handler () {}}]" autofocus/>
-               <div class="row justify-between" style="margin-top: 25px">
-                <q-btn color="warning" @click="minimizedModalAdd = false" label="Voltar" />
-                <q-btn color="primary" label="Cadastrar" v-on:click="addGender()" />
-              </div>
-            </div>
-    </q-modal>
       </div>
     </div>
-     <q-modal v-model="minimizedModal" minimized ref="modalRef">
-      <div style="padding: 50px; width: 30vw">
-          <div class="q-display-1 q-mb-md text-center">Editar Sexo</div>
-          <q-input v-model="gender.name" type="text" float-label="Sexo" :after="[{icon: 'font_download', handler () {}}]" autofocus/>
-          <div class="row justify-between" style="margin-top: 25px">
-          <q-btn color="warning" @click="minimizedModal = false" label="Voltar" />
-          <q-btn color="primary" label="Cadastrar" v-on:click="updateGender(gender)" />
-        </div>
-        </div>
-    </q-modal>
    </q-page>
 </template>
 
@@ -77,17 +57,10 @@
 </style>
 
 <script>
-import { mapActions, mapState } from 'vuex'
-import axios from 'axios'
 export default {
   data () {
     return {
-      minimizedModal: false,
-      minimizedModalAdd: false,
-      gender: [
-        {id: ''},
-        {name: ''}
-      ],
+      genders: [],
       columns: [
         { name: 'id', required: true, label: 'ID', align: 'left', field: 'id', sortable: true },
         { name: 'name', label: 'Nome', field: 'name', align: 'left', sortable: true },
@@ -100,48 +73,30 @@ export default {
       pagination: {
         page: 2
       },
-      paginationControl: { rowsPerPage: 3, page: 1 },
+      paginationControl: { rowsPerPage: 10, page: 1 },
       loading: false,
-      dark: true
+      dark: true,
+      modal: {
+        opened: false,
+        title: '',
+        submitButton: ''
+      }
     }
   },
   mounted () {
-    this.setGenders()
-  },
-  computed: {
-    ...mapState('genders', ['genders'])
+    this.$store.dispatch('genders/setAllGenders').then(() => {
+      this.genders = this.$store.getters['genders/getAllForTable']
+    })
   },
   methods: {
-    ...mapActions('genders', ['setGenders']),
-    OpenGenderModalEdit () {
-      this.minimizedModal = true
+    editGender (row) {
+      const id = row.id
+      this.$router.push(`gender/${id}`)
     },
-    OpenGenderModalAdd () {
-      this.minimizedModalAdd = true
+    createGender () {
+      this.$router.push(`gender`)
     },
-    addGender () {
-      axios.post(`${process.env.API}/genders`, {
-        name: this.gender.name
-      })
-        .then(response => {
-          if (response.data.status === true) {
-            this.$q.notify({
-              color: 'secondary',
-              icon: 'add_circle',
-              message: `Sexo criado com sucesso!`
-            })
-            this.minimizedModalAdd = false
-            location.reload()
-          } else {
-            alert('Erro no Cadastro, tente novamente mais tarde.')
-          }
-        })
-        .catch(e => {
-          console.log(e)
-          alert('Servidor Fora')
-        })
-    },
-    deleteGender (row) {
+    delGender (row) {
       const id = row.id
       const name = row.name
       this.$q.dialog({
@@ -151,45 +106,12 @@ export default {
         cancel: 'Não'
       }).then(() => {
         this.$store.dispatch('genders/delGender', id)
-        this.$q.notify(`Gênero ${name} excluido com sucesso!`)
+        // window.location.reload()
+        // this.$q.notify(`Gênero ${name} excluido com sucesso!`)
       })
         .catch(e => {
           console.log(e)
         })
-    },
-    editGender (row) {
-      this.minimizedModal = true
-      this.gender.id = row.id
-      this.gender.name = row.name
-    },
-    updateGender () {
-      const gender = this.gender
-      this.$store.dispatch('genders/updGender', gender)
-        .then(response => {
-          if (response.status === true) {
-            this.$q.notify({
-              color: 'secondary',
-              icon: 'add_circle',
-              message: `Sexo atualizado com sucesso!`
-            })
-          } else {
-            console.log('entrou no else')
-          }
-        })
-        .catch(e => {
-          console.log(e)
-        })
-    },
-    showGender (row) {
-      this.$q.dialog({
-        title: 'Detalhes',
-        message: `ID: ${row.id}, gênero: ${row.name}`,
-        ok: 'Voltar'
-      }).then(() => {
-        // this.$q.notify(`Gênero ${row.name} excluido com sucesso!`)
-      }).catch(() => {
-        // this.$q.notify(`Favor tentar novamente mais tarde.`)
-      })
     }
   }
 }
