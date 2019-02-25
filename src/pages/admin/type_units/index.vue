@@ -8,6 +8,7 @@
             :columns="columns"
             :filter="filter"
             :visible-columns="visibleColumns"
+            :pagination.sync="paginationControl"
             :separator="separator"
             row-key="id"
             color="secondary"
@@ -40,6 +41,23 @@
               />
             </template>
             <template slot="top-right" slot-scope="props">
+               <q-table-columns
+                color="secondary"
+                class="q-mr-sm"
+                v-model="visibleColumns"
+                :columns="columns"
+              />
+               <q-select
+                color="secondary"
+                v-model="separator"
+                :options="[
+                  { label: 'Horizontal', value: 'horizontal' },
+                  { label: 'Vertical', value: 'vertical' },
+                  { label: 'Cell', value: 'cell' },
+                  { label: 'None', value: 'none' }
+                ]"
+                hide-underline
+              />
               <q-btn
                 @click="createTypeUnit()"
                 icon="add_circle"
@@ -61,14 +79,14 @@ import { mapActions, mapState, mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      genders: [],
       columns: [
         { name: 'id', required: true, label: 'ID', align: 'left', field: 'id', sortable: true },
         { name: 'name', label: 'Nome', field: 'name', align: 'left', sortable: true },
+        { name: 'description', label: 'Descrição', field: 'description', align: 'left', sortable: true },
         { name: 'action', label: 'Ações', align: 'right', field: 'action' }
       ],
       filter: '',
-      visibleColumns: ['id', 'name', 'action'],
+      visibleColumns: ['id', 'name', 'description', 'action'],
       separator: 'horizontal',
       selection: 'multiple',
       pagination: {
@@ -76,12 +94,7 @@ export default {
       },
       paginationControl: { rowsPerPage: 10, page: 1 },
       loading: false,
-      dark: true,
-      modal: {
-        opened: false,
-        title: '',
-        submitButton: ''
-      }
+      dark: true
     }
   },
   mounted () {
