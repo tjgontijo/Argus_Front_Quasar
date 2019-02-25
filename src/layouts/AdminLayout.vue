@@ -93,9 +93,9 @@
             <q-item-side icon="fas fa-user-friends" />
             <q-item-main label="Orientação Sexual" sublabel="" />
           </q-item> -->
-          <q-item to="#">
+          <q-item to="type-units">
             <q-item-side icon="phone" />
-            <q-item-main label="Tipos de Telefones" sublabel="" />
+            <q-item-main label="Tipos de Unidades" sublabel="" />
           </q-item>
           <q-item to="#">
             <q-item-side icon="alternate_email" />

@@ -1,27 +1,27 @@
 
 export function getAllForTable (state) {
-  var typeunits = []
+  var typeUnits = []
 
-  for (let value of Object.values(state.typeunits)) {
+  for (let value of Object.values(state.typeUnits)) {
     let item = {
       id: value.id,
       name: value.name,
       description: value.description
     }
-    typeunits.push(item)
+    typeUnits.push(item)
   }
-  return typeunits
+  return typeUnits
 }
 
 export function getAllForCombo (state) {
-  var typeunits = []
+  var typeUnits = []
 
-  for (let value of Object.values(state.typeunits)) {
+  for (let value of Object.values(state.typeUnits)) {
     let item = {
       value: value.id,
       label: value.name
     }
-    typeunits.push(item)
+    typeUnits.push(item)
   }
-  return typeunits
+  return typeUnits
 }

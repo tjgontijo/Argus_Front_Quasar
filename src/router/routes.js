@@ -27,6 +27,9 @@ const routes = [
       { path: 'genders', component: () => import('pages/admin/genders/index.vue') },
       { path: 'gender', component: () => import('pages/admin/genders/create.vue') },
       { path: 'gender/:id', component: () => import('pages/admin/genders/edit.vue') },
+      { path: 'type-units', component: () => import('pages/admin/type_units/index.vue') },
+      { path: 'type-unit', component: () => import('pages/admin/type_units/create.vue') },
+      { path: 'type-unit/:id', component: () => import('pages/admin/type_units/edit.vue') },
       { path: 'clients', component: () => import('pages/admin/clients/Index.vue') }
     ]
   }
