@@ -2,9 +2,9 @@
   <q-page padding class="container">
     <div class="row">
       <div class="col">
-         <p class="q-display-1">Tipos de Unidades</p>
+         <p class="q-display-1">Unidades</p>
           <q-table
-            :data="typeUnits"
+            :data="units"
             :columns="columns"
             :filter="filter"
             :visible-columns="visibleColumns"
@@ -22,7 +22,7 @@
                 flat
                 round
                 edit
-                @click="editTypeUnit(props.row)"
+                @click="editUnit(props.row)"
                 icon="fas fa-edit"></q-btn>
                  <q-btn
                 color="negative"
@@ -30,7 +30,7 @@
                 round
                 delete
                 icon="delete"
-                @click="delTypeUnit(props.row)"/>
+                @click="delUnit(props.row)"/>
             </q-td>
             <template slot="top-left" slot-scope="props">
               <q-search
@@ -59,7 +59,7 @@
                 hide-underline
               />
               <q-btn
-                @click="createTypeUnit()"
+                @click="createUnit()"
                 icon="add_circle"
                 size="16px"
                 color="primary"
@@ -81,13 +81,13 @@ export default {
     return {
       columns: [
         { name: 'id', required: true, label: 'ID', align: 'left', field: 'id', sortable: true },
+        { name: 'shortName', label: 'Sigla', field: 'shortName', align: 'left', sortable: true },
         { name: 'name', label: 'Nome', field: 'name', align: 'left', sortable: true },
-        { name: 'description', label: 'Descrição', field: 'description', align: 'left', sortable: true },
-        { name: 'isTeach', label: 'É UEE?', field: 'isTeach', align: 'left', sortable: true },
+        { name: 'isTeach', label: 'Tem Encargo de Ensino', field: 'isTeach', align: 'left', sortable: true },
         { name: 'action', label: 'Ações', align: 'right', field: 'action' }
       ],
       filter: '',
-      visibleColumns: ['id', 'name', 'description', 'isTeach', 'action'],
+      visibleColumns: ['id', 'shortName', 'name', 'isTeach', 'action'],
       separator: 'horizontal',
       selection: 'multiple',
       pagination: {
@@ -99,31 +99,31 @@ export default {
     }
   },
   mounted () {
-    this.setAllTypeUnits()
+    this.setAllUnits()
   },
   computed: {
-    ...mapState('typeunits', ['typeUnits'])
+    ...mapState('units', ['units'])
   },
   methods: {
-    ...mapActions('typeunits', ['setAllTypeUnits']),
-    ...mapGetters('typeunits', ['getAllForTable']),
-    editTypeUnit (row) {
+    ...mapActions('units', ['setAllUnits']),
+    ...mapGetters('units', ['getAllForTable']),
+    editUnit (row) {
       const id = row.id
-      this.$router.push(`type-unit/${id}`)
+      this.$router.push(`unit/${id}`)
     },
-    createTypeUnit () {
-      this.$router.push(`type-unit`)
+    createUnit () {
+      this.$router.push(`unit`)
     },
-    delTypeUnit (row) {
+    delUnit (row) {
       const id = row.id
       const name = row.name
       this.$q.dialog({
         title: 'Excluir',
-        message: `Tem certeza que deseja excluir o Tipo de Unidade: ${name}`,
+        message: `Tem certeza que deseja excluir a Unidade: ${name}`,
         ok: 'Sim',
         cancel: 'Não'
       }).then(() => {
-        this.$store.dispatch('typeunits/delTypeUnit', id)
+        this.$store.dispatch('units/delUnit', id)
         setTimeout(() => {
           window.location.reload()
         }, 1000)

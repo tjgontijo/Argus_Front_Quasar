@@ -9,7 +9,7 @@
           <q-input v-model="user.name" type="text" float-label="Nome Completo" :after="[{icon: 'font_download', handler () {}}]" autofocus/>
           <q-input v-model="user.email" type="email" float-label="E-mail" :after="[{icon: 'mail', handler () {}}]"/>
           <q-input v-model="user.password" type="password" float-label="Senha" :after="[{icon: 'lock', handler () {}}]" />
-          <q-input v-model="user.password_confirmation" type="password" float-label="Confirmar Senha" :after="[{icon: 'lock', handler () {}}]" />
+          <q-input v-model="user.password_confirmation" type="password" float-label="Confirmar Senha" :after="[{icon: 'lock', handler () {}}]" @keyup.enter="register()"/>
         </q-card-main>
           <div class="row justify-between q-pa-md">
             <q-btn flat color="warning" to="/login" icon="" label="Já tenho conta" />

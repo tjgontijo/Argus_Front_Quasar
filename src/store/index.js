@@ -6,6 +6,7 @@ import events from './events'
 import breeds from './breeds'
 import genders from './genders'
 import typeunits from './typeunits'
+import units from './units'
 
 Vue.use(Vuex)
 
@@ -21,7 +22,8 @@ export default function (/* { ssrContext } */) {
       events,
       breeds,
       genders,
-      typeunits
+      typeunits,
+      units
     }
   })
 

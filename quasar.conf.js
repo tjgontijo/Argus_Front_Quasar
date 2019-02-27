@@ -85,7 +85,8 @@ module.exports = function (ctx) {
         'QCollapsible',
         'QItemSeparator',
         'QPopover',
-        'QModalLayout'
+        'QModalLayout',
+        'QRadio'
       ],
       directives: [
         'Ripple',

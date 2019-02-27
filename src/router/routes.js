@@ -30,6 +30,9 @@ const routes = [
       { path: 'type-units', component: () => import('pages/admin/type_units/index.vue') },
       { path: 'type-unit', component: () => import('pages/admin/type_units/create.vue') },
       { path: 'type-unit/:id', component: () => import('pages/admin/type_units/edit.vue') },
+      { path: 'units', component: () => import('pages/admin/units/index.vue') },
+      { path: 'unit', component: () => import('pages/admin/units/create.vue') },
+      { path: 'unit/:id', component: () => import('pages/admin/units/edit.vue') },
       { path: 'clients', component: () => import('pages/admin/clients/Index.vue') }
     ]
   }

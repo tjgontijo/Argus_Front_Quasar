@@ -23,6 +23,13 @@
                     />
                   </div>
               </div>
+               <div class="row q-mt-xl justify">
+                <div class="col q-px-md">
+                  <p class="caption">É Unidade com Encargo de Ensino ?</p>
+                  <q-radio v-model="typeUnit.isTeach" val="Sim" color="secondary" label="Sim" />
+                  <q-radio v-model="typeUnit.isTeach" val="Não" color="negative" label="Não" style="margin-left: 10px" />
+                </div>
+              </div>
               <div class="row q-py-lg justify-between">
                 <q-btn color="warning" label="Voltar" block @click="$router.push('/admin/type-units')"/>
                 <q-btn color="primary" label="Salvar" block @click="submit"/>
@@ -53,13 +60,11 @@ export default {
       const id = this.id
       const name = this.typeUnit.name
       const description = this.typeUnit.description
-      this.$store.dispatch('typeunits/edit', {id, name, description})
-        .then((response) => {
-          this.$router.push('/admin/type-units')
-        })
-        .catch((err) => {
-          console.error(err)
-        })
+      const isTeach = this.typeUnit.isTeach
+      this.$store.dispatch('typeunits/edit', {id, name, description, isTeach})
+      setTimeout(() => {
+        this.$router.push('/admin/type-units')
+      }, 1000)
     }
   }
 }
