@@ -27,13 +27,15 @@ const routes = [
       { path: 'genders', component: () => import('pages/admin/genders/index.vue') },
       { path: 'gender', component: () => import('pages/admin/genders/create.vue') },
       { path: 'gender/:id', component: () => import('pages/admin/genders/edit.vue') },
-      { path: 'type-units', component: () => import('pages/admin/type_units/index.vue') },
-      { path: 'type-unit', component: () => import('pages/admin/type_units/create.vue') },
-      { path: 'type-unit/:id', component: () => import('pages/admin/type_units/edit.vue') },
+      { path: 'course-types', component: () => import('pages/admin/course_types/index.vue') },
+      { path: 'course-type', component: () => import('pages/admin/course_types/create.vue') },
+      { path: 'course-type/:id', component: () => import('pages/admin/course_types/edit.vue') },
       { path: 'units', component: () => import('pages/admin/units/index.vue') },
       { path: 'unit', component: () => import('pages/admin/units/create.vue') },
       { path: 'unit/:id', component: () => import('pages/admin/units/edit.vue') },
-      { path: 'clients', component: () => import('pages/admin/clients/Index.vue') }
+      { path: 'courses', component: () => import('pages/admin/courses/index.vue') },
+      { path: 'course', component: () => import('pages/admin/courses/create.vue') },
+      { path: 'course/:id', component: () => import('pages/admin/courses/edit.vue') }
     ]
   }
 ]

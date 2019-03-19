@@ -3,35 +3,37 @@
       <div class="q-my-xl q-mx-lg">
         <q-card>
           <q-card-title>
-            Cadastrar novo Tipo de Unidade
+            Cadastrar novo Tipo de Curso
           </q-card-title>
           <q-card-separator />
           <q-card-main>
             <div class="row q-mt-xl justify-center">
                  <div class="col-5 q-px-md">
                     <q-input
-                      v-model="typeUnit.name"
-                      float-label="Tipo de Unidade"
+                      v-model="courseType.name"
+                      float-label="Nome"
                       autofocus
                     />
                   </div>
                   <div class="col-7 q-px-md">
                     <q-input
-                      v-model="typeUnit.description"
+                      v-model="courseType.description"
                       float-label="Descrição"
                       @keyup.enter="submit"
                     />
                   </div>
               </div>
               <div class="row q-mt-xl justify">
-                <div class="col q-px-md">
-                  <p class="caption">É Unidade com Encargo de Ensino ?</p>
-                  <q-radio v-model="typeUnit.isTeach" val="Sim" color="secondary" label="Sim" />
-                  <q-radio v-model="typeUnit.isTeach" val="Não" color="negative" label="Não" style="margin-left: 10px" />
-                </div>
+                 <div class="col-5 q-px-md">
+                    <q-input
+                      v-model="courseType.type"
+                      float-label="Executor"
+                      autofocus
+                    />
+                  </div>
               </div>
               <div class="row q-py-lg justify-between">
-                <q-btn color="warning" label="Voltar" block @click="$router.push('/admin/type-units')"/>
+                <q-btn color="warning" label="Voltar" block @click="$router.push('/admin/course-types')"/>
                 <q-btn color="primary" label="Salvar" block @click="submit"/>
             </div>
             </q-card-main>
@@ -45,17 +47,17 @@
 export default {
   data () {
     return {
-      typeUnit: []
+      courseType: []
     }
   },
   methods: {
     submit () {
-      const name = this.typeUnit.name
-      const description = this.typeUnit.description
-      const isTeach = this.typeUnit.isTeach
-      this.$store.dispatch('typeunits/create', {name, description, isTeach})
+      const name = this.courseType.name
+      const description = this.courseType.description
+      const type = this.courseType.type
+      this.$store.dispatch('coursetypes/create', {name, description, type})
       setTimeout(() => {
-        this.$router.push('/admin/type-units')
+        this.$router.push('/admin/course-types')
       }, 500)
     }
   }

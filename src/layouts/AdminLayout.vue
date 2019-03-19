@@ -80,10 +80,10 @@
           <q-item-main label="Painel Inicial" sublabel="" />
         </q-item>
         <q-item-separator />
-        <q-collapsible group="somegroup" icon="remove" label="Cadastro Base">
+        <q-collapsible group="somegroup" icon="fas fa-database" label="Cadastro Base">
           <q-item to="genders">
             <q-item-side icon="face" />
-            <q-item-main label="Sexos" sublabel="" />
+            <q-item-main label="Sexo" sublabel="" />
           </q-item>
           <q-item to="breeds">
             <q-item-side icon="adjust" />
@@ -91,81 +91,88 @@
           </q-item>
           <q-item to="units">
             <q-item-side icon="fas fa-user-friends" />
-            <q-item-main label="Unidades" sublabel="" />
+            <q-item-main label="Unidade" sublabel="" />
           </q-item>
-          <!-- <q-item to="type-units">
-            <q-item-side icon="phone" />
-            <q-item-main label="Tipos de Unidades" sublabel="" />
-          </q-item> -->
-          <q-item to="#">
-            <q-item-side icon="alternate_email" />
-            <q-item-main label="Tipos de E-mail" sublabel="" />
+           <q-item to="course-types">
+            <q-item-side icon="school" />
+            <q-item-main label="Tipo de Curso" sublabel="" />
           </q-item>
-          <!-- <q-item to="#">
-            <q-item-side icon="far fa-eye" />
-            <q-item-main label="Cores de Olhos" sublabel="" />
+          <q-item to="courses">
+            <q-item-side icon="store" />
+            <q-item-main label="Curso" sublabel="" />
           </q-item>
-          <q-item to="#">
-            <q-item-side icon="fas fa-user-friends" />
-            <q-item-main label="Cores de Cabelos" sublabel="" />
-          </q-item>
-          <q-item to="#">
-            <q-item-side icon="fas fa-user-friends" />
-            <q-item-main label="Ramos de Atividades" sublabel="" />
-          </q-item>
-          <q-item to="#">
-            <q-item-side icon="fas fa-user-friends" />
-            <q-item-main label="Categoria de interesses" sublabel="" />
-          </q-item>
-          <q-item to="#">
-            <q-item-side icon="fas fa-user-friends" />
-            <q-item-main label="Interesses" sublabel="" />
-          </q-item> -->
-          <!-- <q-item to="#">
-            <q-item-side icon="fas fa-user-friends" />
-            <q-item-main label="Nível de Divulgador" sublabel="" />
-          </q-item> -->
         </q-collapsible>
         <q-item-separator />
-        <q-collapsible group="somegroup" icon="remove" label="Usuários">
+        <q-collapsible group="somegroup" icon="fas fa-landmark" label="Acadêmico">
+          <q-collapsible group="somegroup2" icon="fas fa-landmark" label="Institucional">
+            <q-item to="#">
+              <q-item-side icon="fab fa-leanpub" />
+              <q-item-main label="Cursos" sublabel="Cadastro de Cursos" />
+            </q-item>
+          </q-collapsible>
+          <q-item-separator />
+          <q-collapsible group="somegroup2" icon="fas fa-landmark" label="Pessoas">
+            <q-item to="#">
+              <q-item-side icon="fab fa-leanpub" />
+              <q-item-main label="Cursos" sublabel="Cadastro de Cursos" />
+            </q-item>
+            <q-item to="#">
+              <q-item-side icon="fab fa-leanpub" />
+              <q-item-main label="Cursos" sublabel="Cadastro de Cursos" />
+            </q-item>
+          </q-collapsible>
+          <q-item-separator />
+          <q-collapsible group="somegroup2" icon="fas fa-landmark" label="Educacional">
+            <q-item to="#">
+              <q-item-side icon="fab fa-leanpub" />
+              <q-item-main label="Cursos" sublabel="Cadastro de Cursos" />
+            </q-item>
+          </q-collapsible>
+        </q-collapsible>
+        <q-item-separator />
+        <q-collapsible group="somegroup" icon="fas fa-user-secret" label="Segurança">
+           <q-item to="#">
+            <q-item-side icon="far fa-address-card" />
+            <q-item-main label="Perfis" sublabel="" />
+          </q-item>
           <q-item to="/admin/users">
             <q-item-side icon="fas fa-user-friends" />
-            <q-item-main label="Cadastro de Usuários" sublabel="" />
+            <q-item-main label="Usuários" sublabel="" />
           </q-item>
           <q-item to="/admin/users/profile-edit">
             <q-item-side icon="perm_identity" />
-            <q-item-main label="Editar Perfil" sublabel="" />
+            <q-item-main label="Permissões" sublabel="" />
+          </q-item>
+          <q-item to="/admin/users/profile-edit">
+            <q-item-side icon="perm_identity" />
+            <q-item-main label="Edição de Perfil" sublabel="" />
           </q-item>
         </q-collapsible>
         <q-item-separator />
-        <!-- <q-collapsible group="somegroup" icon="perm_identity" label="Divulgadores">
-          <q-item to="#">
-            <q-item-side icon="fas fa-user-friends" />
-            <q-item-main label="Cadastro de Divulgadores" sublabel="" />
-          </q-item>
-        </q-collapsible> -->
-        <!-- <q-item-separator />
-        <q-collapsible group="somegroup" icon="shopping_cart" label="Eventos">
-          <q-item to="#">
-            <q-item-side icon="far fa-calendar-alt" />
-            <q-item-main label="Calendario" sublabel="" />
-          </q-item>
-          <q-item to="#">
-            <q-item-side icon="far fa-calendar-alt" />
-            <q-item-main label="Cards de Eventos" sublabel="" />
-          </q-item>
-          <q-item to="/admin/events">
-            <q-item-side icon="far fa-calendar-alt" />
-            <q-item-main label="Cadastro de Eventos" sublabel="" />
+        <q-collapsible group="somegroup" icon="fas fa-exchange-alt" label="Integração">
+           <q-item to="#">
+            <q-item-side icon="far fa-address-card" />
+            <q-item-main label="...." sublabel="" />
           </q-item>
         </q-collapsible>
-        <q-item-separator /> -->
-        <!-- <q-collapsible group="somegroup" icon="shopping_cart" label="Clientes">
-           <q-item to="/admin/clients">
+         <q-item-separator />
+        <q-collapsible group="somegroup" icon="far fa-eye" label="Monitoramento">
+           <q-item to="#">
             <q-item-side icon="far fa-address-card" />
-            <q-item-main label="Clientes" sublabel="" />
+            <q-item-main label="...." sublabel="" />
           </q-item>
-        </q-collapsible> -->
+        </q-collapsible>
+        <q-item-separator />
+         <q-collapsible group="somegroup" icon="far fa-lightbulb" label="Ajuda">
+          <q-item to="#">
+            <q-item-side icon="far fa-calendar-alt" />
+            <q-item-main label="Suporte" sublabel="" />
+          </q-item>
+          <q-item to="#">
+            <q-item-side icon="far fa-calendar-alt" />
+            <q-item-main label="Tutorial" sublabel="" />
+          </q-item>
+        </q-collapsible>
       </q-list>
     </q-layout-drawer>
     <q-page-container>

@@ -7,6 +7,7 @@ import breeds from './breeds'
 import genders from './genders'
 import typeunits from './typeunits'
 import units from './units'
+import coursetypes from './coursetypes'
 
 Vue.use(Vuex)
 
@@ -23,6 +24,7 @@ export default function (/* { ssrContext } */) {
       breeds,
       genders,
       typeunits,
+      coursetypes,
       units
     }
   })

@@ -2,9 +2,9 @@
   <q-page padding class="container">
     <div class="row">
       <div class="col">
-         <p class="q-display-1">Tipos de Unidades</p>
+         <p class="q-display-1"> Tipos de Cursos</p>
           <q-table
-            :data="typeUnits"
+            :data="courseTypes"
             :columns="columns"
             :filter="filter"
             :visible-columns="visibleColumns"
@@ -22,7 +22,7 @@
                 flat
                 round
                 edit
-                @click="editTypeUnit(props.row)"
+                @click="editCourseType(props.row)"
                 icon="fas fa-edit"></q-btn>
                  <q-btn
                 color="negative"
@@ -30,7 +30,7 @@
                 round
                 delete
                 icon="delete"
-                @click="delTypeUnit(props.row)"/>
+                @click="delCourseType(props.row)"/>
             </q-td>
             <template slot="top-left" slot-scope="props">
               <q-search
@@ -59,7 +59,7 @@
                 hide-underline
               />
               <q-btn
-                @click="createTypeUnit()"
+                @click="createCourseType()"
                 icon="add_circle"
                 size="16px"
                 color="primary"
@@ -83,11 +83,11 @@ export default {
         { name: 'id', required: true, label: 'ID', align: 'left', field: 'id', sortable: true },
         { name: 'name', label: 'Nome', field: 'name', align: 'left', sortable: true },
         { name: 'description', label: 'Descrição', field: 'description', align: 'left', sortable: true },
-        { name: 'isTeach', label: 'É UEE?', field: 'isTeach', align: 'left', sortable: true },
+        { name: 'type', label: 'Executor', field: 'type', align: 'left', sortable: true },
         { name: 'action', label: 'Ações', align: 'right', field: 'action' }
       ],
       filter: '',
-      visibleColumns: ['id', 'name', 'description', 'isTeach', 'action'],
+      visibleColumns: ['id', 'name', 'description', 'type', 'action'],
       separator: 'horizontal',
       selection: 'multiple',
       pagination: {
@@ -99,31 +99,31 @@ export default {
     }
   },
   mounted () {
-    this.setAllTypeUnits()
+    this.setAllCourseTypes()
   },
   computed: {
-    ...mapState('typeunits', ['typeUnits'])
+    ...mapState('coursetypes', ['courseTypes'])
   },
   methods: {
-    ...mapActions('typeunits', ['setAllTypeUnits']),
-    ...mapGetters('typeunits', ['getAllForTable']),
-    editTypeUnit (row) {
+    ...mapActions('coursetypes', ['setAllCourseTypes']),
+    ...mapGetters('coursetypes', ['getAllForTable']),
+    editCourseType (row) {
       const id = row.id
-      this.$router.push(`type-unit/${id}`)
+      this.$router.push(`course-type/${id}`)
     },
-    createTypeUnit () {
-      this.$router.push(`type-unit`)
+    createCourseType () {
+      this.$router.push(`course-type`)
     },
-    delTypeUnit (row) {
+    delCourseType (row) {
       const id = row.id
       const name = row.name
       this.$q.dialog({
         title: 'Excluir',
-        message: `Tem certeza que deseja excluir o Tipo de Unidade: ${name}`,
+        message: `Tem certeza que deseja excluir o Tipo de Curso: ${name}`,
         ok: 'Sim',
         cancel: 'Não'
       }).then(() => {
-        this.$store.dispatch('typeunits/delTypeUnit', id)
+        this.$store.dispatch('coursetypes/delCourseType', id)
         setTimeout(() => {
           window.location.reload()
         }, 1000)

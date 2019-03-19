@@ -2,7 +2,7 @@
   <q-page padding class="container">
     <div class="row">
       <div class="col">
-         <p class="q-display-1">Sexos</p>
+         <p class="q-display-1">Sexo</p>
           <q-table
             :data="genders"
             :columns="columns"
@@ -101,7 +101,7 @@ export default {
       const name = row.name
       this.$q.dialog({
         title: 'Excluir',
-        message: `Tem certeza que deseja excluir o gênero: ${name}`,
+        message: `Tem certeza que deseja excluir o sexo: ${name}`,
         ok: 'Sim',
         cancel: 'Não'
       }).then(() => {
