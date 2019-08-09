@@ -8,7 +8,6 @@ export const setAllUnits = ({ commit, dispatch }) => {
     }
     Vue.prototype.$axios(options)
       .then((response) => {
-        // console.log(response.data)
         commit('SET_ALL_UNITS', response.data.units)
         resolve(response)
       })
@@ -26,11 +25,9 @@ export const setUnit = ({ commit, dispatch }, id) => {
       data: id,
       url: `${process.env.API}/units/${id}`
     }
-    console.log('ANTES DO AXIOS', id)
     Vue.prototype.$axios(options)
       .then((response) => {
         commit('SET_UNIT_BY_ID', response.data.unit)
-        console.log(response)
       })
       .catch((err) => {
         console.error(err)
@@ -69,8 +66,8 @@ export function edit ({commit, dispatch}, type) {
     }
     this._vm.$axios(options)
       .then(response => {
-        const typeUnit = response.data.typeUnit
-        commit('EDIT_UNIT', typeUnit)
+        const unit = response.data.unit
+        commit('EDIT_UNIT', unit)
       })
       .catch(err => {
         for (let value of Object.values(err.response.data.errors)) {
