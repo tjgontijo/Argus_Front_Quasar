@@ -5,7 +5,7 @@ export const SET_GENDER_BY_ID = (state, dados) => {
   state.gender = dados
 }
 export const EDIT_GENDER = (state, gender) => {
-  state.genders = gender
+  state.status = gender
 }
 export const ADD_GENDER = (state, { gender }) => {
   state.genders.push(gender)

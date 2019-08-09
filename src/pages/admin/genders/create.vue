@@ -14,27 +14,16 @@
             />
           </div>
         </div>
-        <div class="row justify-center">
-          <div class="col-2 q-my-xl">
-            <q-btn
-              color="primary"
-              label="Salvar"
-              block
-              class="full-width"
-              @click="submit"
-            />
-          </div>
-        </div>
+        <div class="row q-py-lg justify-between">
+                <q-btn color="warning" label="Voltar" block @click="$router.push('/admin/genders')"/>
+                <q-btn color="primary" label="Salvar" block @click="submit"/>
+            </div>
       </div>
   </q-page>
 </template>
 
 <script>
-import AppModal from 'components/AppModal'
 export default {
-  components: {
-    AppModal
-  },
   data () {
     return {
       gender: []
