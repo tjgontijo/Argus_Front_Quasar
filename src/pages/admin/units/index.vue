@@ -83,7 +83,7 @@ export default {
         { name: 'id', required: true, label: 'Id', align: 'left', field: 'id', sortable: true },
         { name: 'shortName', label: 'Sigla', field: 'shortName', align: 'left', sortable: true },
         { name: 'name', label: 'Nome', field: 'name', align: 'left', sortable: true },
-        { name: 'isTeach', label: 'Tem Encargo de Ensino', field: 'isTeach', align: 'left', sortable: true },
+        { name: 'isTeach', label: 'Tem Encargo de Ensino?', field: 'isTeach', align: 'left', sortable: true },
         { name: 'action', label: 'Ações', align: 'right', field: 'action' }
       ],
       filter: '',
