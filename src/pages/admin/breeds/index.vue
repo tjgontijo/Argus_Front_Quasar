@@ -23,7 +23,7 @@
                 edit
                 @click="editBreed(props.row)"
                 icon="fas fa-edit"></q-btn>
-                  <q-btn
+                 <q-btn
                 color="negative"
                 flat
                 round
@@ -39,9 +39,9 @@
                 class="col-6"
               />
             </template>
-            <template slot="top-right" slot-scope="props">
+           <template slot="top-right" slot-scope="props">
               <q-btn
-                @click="OpenBreedModalAdd()"
+                @click="createBreed()"
                 icon="add_circle"
                 size="16px"
                 color="primary"
@@ -101,12 +101,30 @@ export default {
   },
   methods: {
     ...mapActions('breeds', ['setBreeds']),
-    OpenBreedModalAdd () {
-      this.minimizedModal = true
-      console.log('Add click')
+    createBreed () {
+      this.$router.push(`breed`)
     },
-    addBreed (breed) {
-      console.log(breed)
+    editBreed (row) {
+      const id = row.id
+      this.$router.push(`breed/${id}`)
+    },
+    deleteBreed (row) {
+      const id = row.id
+      const name = row.name
+      this.$q.dialog({
+        title: 'Excluir',
+        message: `Tem certeza que deseja excluir a Raça, cor ou Etinia: ${name}`,
+        ok: 'Sim',
+        cancel: 'Não'
+      }).then(() => {
+        this.$store.dispatch('breeds/delBreed', id)
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000)
+      })
+        .catch(e => {
+          console.log(e)
+        })
     }
   }
 }
