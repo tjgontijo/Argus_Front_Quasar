@@ -93,41 +93,31 @@
             <q-item-side icon="fas fa-user-friends" />
             <q-item-main label="Unidade" sublabel="" />
           </q-item>
-           <q-item to="course-types">
-            <q-item-side icon="school" />
-            <q-item-main label="Tipo de Curso" sublabel="" />
-          </q-item>
-          <q-item to="courses">
-            <q-item-side icon="store" />
-            <q-item-main label="Curso" sublabel="" />
-          </q-item>
         </q-collapsible>
         <q-item-separator />
         <q-collapsible group="somegroup" icon="fas fa-landmark" label="Acadêmico">
           <q-collapsible group="somegroup2" icon="fas fa-landmark" label="Institucional">
-            <q-item to="#">
+            <q-item to="course-types">
+              <q-item-side icon="school" />
+              <q-item-main label="Tipos de Cursos" sublabel="" />
+            </q-item>
+            <q-item to="courses">
               <q-item-side icon="fab fa-leanpub" />
-              <q-item-main label="Cursos" sublabel="Cadastro de Cursos" />
+              <q-item-main label="Cursos" sublabel="" />
             </q-item>
           </q-collapsible>
           <q-item-separator />
           <q-collapsible group="somegroup2" icon="fas fa-landmark" label="Pessoas">
             <q-item to="#">
               <q-item-side icon="fab fa-leanpub" />
-              <q-item-main label="Cursos" sublabel="Cadastro de Cursos" />
+              <q-item-main label="#" sublabel="" />
             </q-item>
             <q-item to="#">
               <q-item-side icon="fab fa-leanpub" />
-              <q-item-main label="Cursos" sublabel="Cadastro de Cursos" />
+              <q-item-main label="#" sublabel="" />
             </q-item>
           </q-collapsible>
           <q-item-separator />
-          <q-collapsible group="somegroup2" icon="fas fa-landmark" label="Educacional">
-            <q-item to="#">
-              <q-item-side icon="fab fa-leanpub" />
-              <q-item-main label="Cursos" sublabel="Cadastro de Cursos" />
-            </q-item>
-          </q-collapsible>
         </q-collapsible>
         <q-item-separator />
         <q-collapsible group="somegroup" icon="fas fa-user-secret" label="Segurança">
