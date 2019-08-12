@@ -16,8 +16,18 @@
             </div>
           </div>
           <div class="row q-py-lg justify-between">
-            <q-btn color="warning" label="Voltar" block @click="$router.push('/admin/breeds')" />
-            <q-btn color="primary" label="Salvar" block @click="submit" />
+            <q-btn
+              color="warning"
+              label="Voltar"
+              block
+              @click="$router.push('/admin/breeds')"
+            />
+            <q-btn
+              color="primary"
+              label="Salvar"
+              block
+              @click="submit"
+            />
           </div>
         </q-card-main>
       </q-card>
@@ -35,8 +45,8 @@ export default {
   methods: {
     submit () {
       const name = this.breed.name
-      this.$store.dispatch("breeds/create", { name }).then(response => {
-        this.$router.push("/admin/breeds")
+      this.$store.dispatch('breeds/create', { name }).then(response => {
+        this.$router.push('/admin/breeds')
       })
     }
   }
