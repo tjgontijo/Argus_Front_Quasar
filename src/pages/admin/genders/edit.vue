@@ -1,24 +1,41 @@
 <template>
   <q-page padding>
-      <div class="q-my-xl q-mx-lg">
-        <span class="text-center">
-          <div class="q-display-1">Editar Sexo</div>
-        </span>
-        <div class="row q-mt-xl justify-center">
-          <div class="col-5 q-px-md">
-            <q-input
-              v-model="gender.name"
-              float-label="Sexo"
-              @keyup.enter="submit"
-              autofocus
-            />
-          </div>
+    <div class="q-my-xl q-mx-lg">
+      <div class="row justify-center">
+        <div class="col-5">
+          <q-card>
+            <q-card-title>Editar</q-card-title>
+            <q-card-separator />
+            <q-card-main>
+              <div class="row q-mt-xl justify-center">
+                <div class="col-5 q-px-md">
+                  <q-input
+                    v-model="gender.name"
+                    float-label="Sexo"
+                    @keyup.enter="submit"
+                    autofocus
+                  />
+                </div>
+              </div>
+              <div class="row justify-between q-pt-xl">
+                <q-btn
+                  color="warning"
+                  label="Voltar"
+                  block
+                  @click="$router.push('/admin/genders')"
+                />
+                <q-btn
+                  color="primary"
+                  label="Salvar"
+                  block
+                  @click="submit"
+                />
+              </div>
+            </q-card-main>
+          </q-card>
         </div>
-        <div class="row q-py-lg justify-between">
-                <q-btn color="warning" label="Voltar" block @click="$router.push('/admin/genders')"/>
-                <q-btn color="primary" label="Salvar" block @click="submit"/>
-            </div>
       </div>
+    </div>
   </q-page>
 </template>
 
@@ -42,7 +59,7 @@ export default {
     submit () {
       const id = this.id
       const name = this.gender.name
-      this.$store.dispatch('genders/edit', {id, name})
+      this.$store.dispatch('genders/edit', { id, name })
         .then((response) => {
           this.$router.push('/admin/genders')
         })
