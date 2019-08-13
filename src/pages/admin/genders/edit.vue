@@ -1,14 +1,14 @@
 <template>
   <q-page padding>
-    <div class="q-my-xl q-mx-lg">
+    <div class="q-ma-xl">
       <div class="row justify-center">
-        <div class="col-5">
+        <div class="col">
           <q-card>
             <q-card-title>Editar</q-card-title>
             <q-card-separator />
             <q-card-main>
               <div class="row q-mt-xl justify-center">
-                <div class="col-5 q-px-md">
+                <div class="col-auto">
                   <q-input
                     v-model="gender.name"
                     float-label="Sexo"

@@ -41,23 +41,6 @@
               />
             </template>
             <template slot="top-right" slot-scope="props">
-               <q-table-columns
-                color="secondary"
-                class="q-mr-sm"
-                v-model="visibleColumns"
-                :columns="columns"
-              />
-               <q-select
-                color="secondary"
-                v-model="separator"
-                :options="[
-                  { label: 'Horizontal', value: 'horizontal' },
-                  { label: 'Vertical', value: 'vertical' },
-                  { label: 'Cell', value: 'cell' },
-                  { label: 'None', value: 'none' }
-                ]"
-                hide-underline
-              />
               <q-btn
                 @click="createUnit()"
                 icon="add_circle"

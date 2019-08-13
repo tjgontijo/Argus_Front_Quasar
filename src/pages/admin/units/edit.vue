@@ -3,19 +3,19 @@
       <div class="q-my-xl q-mx-lg">
         <q-card>
           <q-card-title>
-            Adicionar Unidade
+            Editar
           </q-card-title>
           <q-card-separator />
           <q-card-main>
             <div class="row q-mt-xl justify-center">
-                 <div class="col-5 q-px-md">
+                 <div class="col-3 q-px-md">
                     <q-input
                       v-model="unit.shortName"
                       float-label="Sigla da Unidade"
                       autofocus
                     />
                   </div>
-                  <div class="col-7 q-px-md">
+                  <div class="col-9 q-px-md">
                     <q-input
                       v-model="unit.name"
                       float-label="Nome da Unidade"

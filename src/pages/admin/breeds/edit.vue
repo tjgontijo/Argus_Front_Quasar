@@ -1,24 +1,41 @@
 <template>
   <q-page padding>
-      <div class="q-my-xl q-mx-lg">
-        <span class="text-center">
-          <div class="q-display-1">Raça, cor ou Etinia</div>
-        </span>
-        <div class="row q-mt-xl justify-center">
-          <div class="col-5 q-px-md">
-            <q-input
-               v-model="breed.name"
-              float-label="Raça, cor ou Etinia"
-              autofocus
-              @keyup.enter="submit"
+    <div class="q-ma-xl">
+      <div class="row justify-center">
+        <div class="col">
+          <q-card>
+            <q-card-title>Editar</q-card-title>
+            <q-card-separator />
+            <q-card-main>
+              <div class="row q-mt-xl justify-center">
+                <div class="col-auto">
+                   <q-input
+                v-model="breed.name"
+                float-label="Raça, cor ou Etinia"
+                autofocus
+                @keyup.enter="submit"
+              />
+                </div>
+              </div>
+              <div class="row justify-between q-pt-xl">
+                 <q-btn
+              color="warning"
+              label="Voltar"
+              block
+              @click="$router.push('/admin/breeds')"
             />
-          </div>
-        </div>
-       <div class="row q-py-lg justify-between">
-          <q-btn color="warning" label="Voltar" block @click="$router.push('/admin/breeds')"/>
-          <q-btn color="primary" label="Salvar" block @click="submit"/>
+            <q-btn
+              color="primary"
+              label="Salvar"
+              block
+              @click="submit"
+            />
+              </div>
+            </q-card-main>
+          </q-card>
         </div>
       </div>
+    </div>
   </q-page>
 </template>
 

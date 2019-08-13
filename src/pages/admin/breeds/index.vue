@@ -34,9 +34,7 @@
             <template slot="top-left" slot-scope="props">
               <q-search
                 hide-underline
-                color="secondary"
                 v-model="filter"
-                class="col-6"
               />
             </template>
            <template slot="top-right" slot-scope="props">
